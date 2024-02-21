@@ -1,0 +1,947 @@
+{
+	"info": {
+		"_postman_id": "50a8439b-a39f-4da2-b561-def987d4d923",
+		"name": "pruebaTec4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32576345"
+	},
+	"item": [
+		{
+			"name": "Flight",
+			"item": [
+				{
+					"name": "postFlight",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"flightCode\": \"BAMI-1235\",\r\n  \"origin\": \"Barcelona\",\r\n  \"destination\": \"Miami\",\r\n  \"flightDate\": \"2024-02-10\",\r\n  \"maxPassengers\": 100,\r\n  \"seatPrice\": 650.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/flights/new"
+					},
+					"response": []
+				},
+				{
+					"name": "getFlight",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/flights"
+					},
+					"response": []
+				},
+				{
+					"name": "getFlightById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/flights/BAMI-1235"
+					},
+					"response": []
+				},
+				{
+					"name": "putFlightById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"origin\": \"Teruel\",\r\n  \"destination\": \"Madrid\",\r\n  \"flightDate\": \"2024-02-20\",\r\n  \"maxPassengers\": 23,\r\n  \"seatPrice\": 200.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/flights/BAMI-1235"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFlightById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/flights/MIMA-1420"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "postHotel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hotelCode\": \"H123\",\r\n  \"hotelName\": \"Ejemplo Hotel\",\r\n  \"city\": \"Ciudad Ejemplo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotels/new"
+					},
+					"response": []
+				},
+				{
+					"name": "postHotelWithRooms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hotelCode\": \"H001\",\r\n  \"hotelName\": \"Hotel Ejemplo\",\r\n  \"city\": \"Ciudad Ejemplo\",\r\n  \"rooms\": [\r\n    {\r\n      \"roomCode\": \"R001\",\r\n      \"availableFrom\": \"2024-02-15\",\r\n      \"availableUntil\": \"2024-03-15\",\r\n      \"numBed\": 2,\r\n      \"availableRoom\": true,\r\n      \"pricePerNight\": 100.0\r\n    },\r\n    {\r\n      \"roomCode\": \"R002\",\r\n      \"availableFrom\": \"2024-02-20\",\r\n      \"availableUntil\": \"2024-03-20\",\r\n      \"numBed\": 1,\r\n      \"availableRoom\": true,\r\n      \"pricePerNight\": 80.0\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotels/new"
+					},
+					"response": []
+				},
+				{
+					"name": "getHotels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHotelById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotels/H123"
+					},
+					"response": []
+				},
+				{
+					"name": "putHotelById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hotelName\": \"Editado Hotel con DTO\",\r\n  \"city\": \"Ciudad Editado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotels/edit/H123"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHotelById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotels/delete/H123"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "postRoom",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"roomCode\": \"HabitacionNoAvailable\",\r\n  \"availableFrom\": \"2024-03-01\",\r\n  \"availableUntil\": \"2024-03-15\",\r\n  \"reserved\": false,\r\n  \"numBed\": 2,\r\n  \"availableRoom\": false,\r\n  \"pricePerNight\": 150.0,\r\n  \"hotel\": {\r\n    \"hotelCode\": \"H123\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotel/rooms"
+					},
+					"response": []
+				},
+				{
+					"name": "getRooms",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel/rooms"
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel/rooms/HabitacionNoAvailable"
+					},
+					"response": []
+				},
+				{
+					"name": "putRoomById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"availableFrom\": \"2024-02-12\",\r\n  \"availableUntil\": \"2024-02-20\",\r\n  \"numBed\": 2,\r\n  \"availableRoom\": false,\r\n  \"pricePerNight\": 100.0\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotel/rooms/HabitacionNoAvailable"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRoomById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel/rooms/HabitacionNoAvailable"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "postPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dni\": \"12345678A\",\r\n  \"name\": \"Jeremy\",\r\n  \"lastName\": \"Lorente\",\r\n  \"email\": \"jeremyLorente98@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/persons"
+					},
+					"response": []
+				},
+				{
+					"name": "getPersons",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/persons"
+					},
+					"response": []
+				},
+				{
+					"name": "getPersonById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/persons/12345678A"
+					},
+					"response": []
+				},
+				{
+					"name": "putPersonById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"NuevoNombre\",\r\n    \"lastName\": \"NuevoApellido\",\r\n    \"email\": \"nuevoemail@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/persons/12345678A"
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePersonById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/persons/12345678A"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RoomBooking",
+			"item": [
+				{
+					"name": "postRoomBookingWithPersons",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numPersons\": 2,\r\n  \"stayFrom\": \"2024-03-12\",\r\n  \"stayUntil\": \"2024-03-15\",\r\n  \"roomPrice\": 140,\r\n  \"room\": {\r\n    \"roomCode\": \"R001\"\r\n  },\r\n  \"persons\": [\r\n    {\r\n      \"dni\": \"12345678A\"    \r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotel-booking"
+					},
+					"response": []
+				},
+				{
+					"name": "putRoomBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomPrice\": 5000.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotel-booking/1"
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomsBookings",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel-booking"
+					},
+					"response": []
+				},
+				{
+					"name": "getRoomBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel-booking/1"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRoomBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotel-booking/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FlightBooking",
+			"item": [
+				{
+					"name": "postFlightBookingWithPersons",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numPersons\": 2,\r\n  \"flightDate\": \"2024-03-05\",\r\n  \"seatType\": \"Economy\",\r\n  \"flight\": {\r\n    \"flightCode\": \"BAMI-1235\"\r\n  },\r\n    \"persons\": [\r\n    {      \"dni\": \"12345678A\"\r\n    }\r\n    ]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/flight-booking"
+					},
+					"response": []
+				},
+				{
+					"name": "getFlightsBookings",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/flight-booking"
+					},
+					"response": []
+				},
+				{
+					"name": "getFlightBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/flight-booking/1"
+					},
+					"response": []
+				},
+				{
+					"name": "putFlightBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"seatType\": \"FirstClass\",\r\n  \"seatPrice\": 250.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/flight-booking/1"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFlightBookingById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/agency/flight-booking/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Story",
+			"item": [
+				{
+					"name": "Story n7",
+					"item": [
+						{
+							"name": "Path Hotel",
+							"item": [
+								{
+									"name": "Post",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "admin",
+												"username": "admin"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"hotelCode\": \"H005\",\r\n  \"hotelName\": \"Hotel Madrid\",\r\n  \"city\": \"Madrid\",\r\n  \"rooms\": [\r\n    {\r\n      \"roomCode\": \"R0033\",\r\n      \"availableFrom\": \"2024-02-15\",\r\n      \"availableUntil\": \"2024-03-15\",\r\n      \"numBed\": 2,\r\n      \"availableRoom\": true,\r\n      \"pricePerNight\": 100.0\r\n    },\r\n    {\r\n      \"roomCode\": \"R0034\",\r\n      \"availableFrom\": \"2024-02-20\",\r\n      \"availableUntil\": \"2024-03-20\",\r\n      \"numBed\": 1,\r\n      \"availableRoom\": false,\r\n      \"pricePerNight\": 80.0\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/agency/hotels/new"
+									},
+									"response": []
+								},
+								{
+									"name": "Put",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "admin",
+												"username": "admin"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"hotelName\": \"Hotel Teruel\",\r\n  \"city\": \"Teruel\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/agency/hotels/edit/H005"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "admin",
+												"username": "admin"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/agency/hotels/delete/H005"
+									},
+									"response": []
+								},
+								{
+									"name": "GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/agency/hotels/H123"
+									},
+									"response": []
+								},
+								{
+									"name": "Get",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/agency/hotels"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Paths Flight",
+							"item": [
+								{
+									"name": "Post",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "admin",
+												"username": "admin"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"flightCode\": \"MIMA-1420\",\r\n  \"origin\": \"Miami\",\r\n  \"destination\": \"Madrid\",\r\n  \"flightDate\": \"2024-02-10\",\r\n  \"maxPassengers\": 100,\r\n  \"seatPrice\": 649.22,\r\n  \"flightBookings\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/agency/flights/new"
+									},
+									"response": []
+								},
+								{
+									"name": "Put",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "admin",
+												"username": "admin"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"origin\": \"Teruel\",\r\n  \"destination\": \"Madrid\",\r\n  \"flightDate\": \"2024-02-20\",\r\n  \"maxPassengers\": 100,\r\n  \"seatPrice\": 200.0\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:8080/agency/flights/MIMA-1420"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "http://localhost:8080/agency/flights/MIMA-1420"
+									},
+									"response": []
+								},
+								{
+									"name": "GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/agency/flights/MIMA-1420"
+									},
+									"response": []
+								},
+								{
+									"name": "Get",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "http://localhost:8080/agency/flights"
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"description": "Permitir la realización de operaciones de alta, baja y modificación sobre una base de datos tanto para la gestión de vuelos como para la gestión de hoteles a los empleados de la agencia que se encuentren **AUTENTICADOS**. Las operaciones de lectura deben estar disponibles tanto para empleados autenticados como para público en general (usuarios)."
+				},
+				{
+					"name": "Story n1: Obtener un listado de todos los hoteles registrados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/hotels"
+					},
+					"response": []
+				},
+				{
+					"name": "Story n2:  Obtener un listado de todos los hoteles disponibles en un determinado rango de fechas y según el destino seleccionado.",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/hotels?city=Ciudad%20Ejemplo&dateFrom=2024-02-15&dateTo=2024-03-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"hotels"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Ciudad%20Ejemplo"
+								},
+								{
+									"key": "dateFrom",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "dateTo",
+									"value": "2024-03-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Story n3: Realizar una reserva de un hotel, indicando cantidad de personas, fecha de entrada, fecha de salida y tipo de habitación. Obtener como respuesta el monto total de la reserva realizada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numPersons\": 1,\r\n  \"stayFrom\": \"2024-03-16\",\r\n  \"stayUntil\": \"2024-03-20\",\r\n  \"roomPrice\": 140,\r\n  \"room\": {\r\n    \"roomCode\": \"R002\"\r\n  },\r\n  \"persons\": [\r\n    {\r\n      \"dni\": \"12345678A\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/hotel-booking/new"
+					},
+					"response": []
+				},
+				{
+					"name": "Story n4: Obtener un listado de todos los vuelos registrados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/agency/flights"
+					},
+					"response": []
+				},
+				{
+					"name": "Story n5: Obtener un listado de todos los vuelos disponibles en un determinado rango de fechas y según el destino y el origen seleccionados.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agency/flights?origin=CityA&destination=CityB&dateFrom=2024-02-15&dateTo=2024-03-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agency",
+								"flights"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "CityA"
+								},
+								{
+									"key": "destination",
+									"value": "CityB"
+								},
+								{
+									"key": "dateFrom",
+									"value": "2024-02-15"
+								},
+								{
+									"key": "dateTo",
+									"value": "2024-03-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Story n6: Realizar una reserva de un vuelo, indicando cantidad de personas, origen, destino y fecha de ida. Obtener como respuesta el monto total de la reserva realizada.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numPersons\": 1,\r\n  \"flightDate\": \"2024-03-05\",\r\n  \"seatType\": \"Economy\",\r\n  \"flight\": {\r\n    \"flightCode\": \"FLY11122\"\r\n  },\r\n    \"persons\": [\r\n    {      \"dni\": \"12345678A\"\r\n    }\r\n    ]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/agency/flight-booking/new"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
